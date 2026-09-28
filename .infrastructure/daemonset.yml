@@ -17,6 +17,7 @@ spec:
       containers:
       - name: my-daemonset
         image: busyboxplus:curl
+        command: ["/bin/sh", "-c", "while true; do curl -sS http://todoapp-service.todoapp.svc.cluster.local:80/api/health > /dev/null; sleep 5; done"]
         resources:
           requests:
             memory: "256Mi"
